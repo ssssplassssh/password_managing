@@ -1,5 +1,10 @@
 # password_managing
 
+Tutorial:
+https://realpython.com/python-gui-tkinter/
+https://tkdocs.com/tutorial/index.html
+
+
 sudo apt-get install python3-tk
 
 Widgets Class:
