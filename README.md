@@ -19,7 +19,7 @@ background="black"  # or bg. Set the background color to black
 width=10,
 height=10
 
-Отримання багаторядкового введення користувача за допомогою текстових віджетів:
+Receiving multi-line user input using text widgets:
 >>> window = tk.Tk()
 >>> text_box = tk.Text()
 >>> text_box.pack()

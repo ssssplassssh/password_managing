@@ -1,0 +1,50 @@
+[
+    {
+        "Service": "YouTube",
+        "Login": "ssssplassssh",
+        "Email": "test@gmail.com",
+        "Password": "Tdshtratata123"
+    },
+    {
+        "Service": "Twitter",
+        "Login": "ihor",
+        "Email": "ihor@gmail.com",
+        "Password": "Tdshtratata123"
+    },
+    {
+        "Service": "",
+        "Login": "",
+        "Email": "",
+        "Password": ""
+    },
+    {
+        "Service": "",
+        "Login": "",
+        "Email": "",
+        "Password": ""
+    },
+    {
+        "Service": "",
+        "Login": "",
+        "Email": "",
+        "Password": ""
+    },
+    {
+        "Service": "",
+        "Login": "",
+        "Email": "",
+        "Password": ""
+    },
+    {
+        "Service": "",
+        "Login": "",
+        "Email": "",
+        "Password": ""
+    },
+    {
+        "Service": "\u041d\u043e\u0432\u0438\u0439 \u0442\u0435\u043a\u0441\u0442",
+        "Login": "\u041d\u043e\u0432\u0438\u0439 \u0442\u0435\u043a\u0441\u0442",
+        "Email": "\u041d\u043e\u0432\u0438\u0439 \u0442\u0435\u043a\u0441\u0442",
+        "Password": "\u041d\u043e\u0432\u0438\u0439 \u0442\u0435\u043a\u0441\u0442"
+    }
+]

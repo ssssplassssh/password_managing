@@ -2,10 +2,11 @@ import tkinter as tk
 from tkinter import ttk
 import functional as fn
 
-# Створення головного вікна
+# Creating the main window
+
 root = tk.Tk()
 
-# Налаштовуємо конфігурацію колонок та рядків для головного вікна
+# We adjust the configuration of columns and rows for the main window
 root.columnconfigure(0, minsize=250)
 root.rowconfigure([0 ,1], minsize=250)
 
@@ -15,33 +16,37 @@ header_box.pack()
 
 ############################Frames#################################
 
-# Створюємо рамку frm для розміщення елементів інтерфейсу
+# We create a "frm" frame for placing interface elements
 frm = ttk.Frame(root, padding=10, relief=tk.SUNKEN, borderwidth=5)
 frm.pack()
 
-# Створюємо рамку frk для інших елементів інтерфейсу
+# We create a "frk" frame for other interface elements
 frk = ttk.Frame(root, padding=10, relief=tk.SUNKEN, borderwidth=5)
 frk.pack()
 
 ############################# Buttons #############################
 
-# Створюємо кнопку "Exit" для закриття програми
+# We create an "Exit" button to close the program
 
 exit_btn = ttk.Button(frm, text='Exit', command=root.destroy)
 exit_btn.grid(column=4, row=10)
 
-# Таким чином, коли кнопка "Send" натискається, виконується анонімна функція, яка потім викликає функцію functional.send_button_clicked з параметром entry_text.
-# Використання анонімної функції дозволяє передати параметри до функції functional.send_button_clicked без необхідності використання іменованої функції. Вона є зручним способом виклику функції з параметрами у випадку, коли потрібно передати додаткові аргументи або змінні до функції обробки події
-# Створюємо кнопку "Send" для виклику функції send_button_clicked з модуля functional, яка обробляє введений пароль
+# So when the "Send" button is clicked, an anonymous function is executed, which then calls the functional.send_button_clicked function with the entry_text parameter.
+# Using an anonymous function allows you to pass parameters to the functional.send_button_clicked function without having to use a named function. It is a convenient way to call a function with parameters when you need to pass additional arguments or variables to the event handler function
+# Create a "Send" button to call the send_button_clicked function from the functional module, which processes the entered password
 
 send_btn = ttk.Button(frm, text='Save',command=lambda: fn.save_button_clicked(service_entry, login_entry, email_entry, password_entry))
 send_btn.grid(column=4, row=9)
 
+take_data_btn = ttk.Button(frm, text='Take data')
+take_data_btn.grid(column=2, row=9)
 
+info_btn = ttk.Button(frm, text='Info', command=lambda: fn.take_info())
+info_btn.grid(column=2, row=10)
 
 #############################Entries###############################
 
-# Створюємо поле введення entry_text для введення login.
+# We create an entry_text input field for entering login
 
 service_entry = ttk.Entry(frm, foreground='black')
 service_entry.grid(column=4, row=5)
@@ -49,12 +54,12 @@ service_entry.grid(column=4, row=5)
 login_entry = ttk.Entry(frm, foreground='green')
 login_entry.grid(column=4, row=6)
 
-# Створюємо поле введення email_entry для введення email.
+# We create an email_entry input field for entering email
 
 email_entry = ttk.Entry(frm, foreground='blue')
 email_entry.grid(column=4, row=7)
 
-# Створюємо поле введення password_entry для введення password.
+# We create a password_entry input field for entering a password
 
 password_entry = ttk.Entry(frm, foreground='red')
 password_entry.grid(column=4, row=8)
@@ -62,25 +67,25 @@ password_entry.grid(column=4, row=8)
 
 #################################Labels############################
 
-# Створюємо мітку login_label для підпису до поля введення service
+# We create a login_label label for signing the service input field
 
 service_label = ttk.Label(frm, text='Input Service: ' )
 service_label.grid(column=2, row=5)
 
-# Створюємо мітку login_label для підпису до поля введення login
+# We create a login_label label for signing the login input field
 
 login_label = ttk.Label(frm, text='Input Login: ' )
 login_label.grid(column=2, row=6)
 
-# Створюємо мітку email_label для підпису до поля введення email
+# We create a label email_label for the signature to the email input field
 
 email_label = ttk.Label(frm, text='Input Email: ' )
 email_label.grid(column=2, row=7)
 
-# Створюємо мітку password_label для підпису до поля введення password
+# We create a password_label label for the signature to the password input field
 
 password_label = ttk.Label(frm, text='Input Password: ')
 password_label.grid(column=2, row=8)
 
-# Запуск головного циклу Tkinter
+# Running the Tkinter main loop
 root.mainloop()

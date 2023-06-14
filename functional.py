@@ -1,8 +1,8 @@
-# Імпортуємо модуль tkinter для доступу до символу tk.END
+# Import the tkinter module to access the tk.END symbol
 import tkinter as tk
 import json
 
-# Реалізація функції обробки поля з введеним значенням, отримання значення і виведення в консоль, очищення всього поля і заміна на нове значення "Новий текст"
+# Implementation of the function of processing the field with the entered value, obtaining the value and outputting it to the console, clearing the entire field and replacing it with a new value "New text"
 
 def field_processing(name_entry):
     field_value = name_entry.get()
@@ -11,18 +11,17 @@ def field_processing(name_entry):
     name_entry.insert(0, "Новий текст")
     return field_value
 
-# Створюємо функцію save_button_clicked, яка виконується при натисканні кнопки "Save"
+# We create the save_button_clicked function, which is executed when the "Save" button is pressed
 
 def save_button_clicked(service_entry, login_entry, email_entry, password_entry):
     
-    # Виклик функцій для обробки поля
-    
+    # Call functions to process the field
     service = field_processing(service_entry)  
     login = field_processing(login_entry)  
     email = field_processing(email_entry)
     password = field_processing(password_entry)
     
-    # Словник для зберігання у форматі .json 
+    # Dictionary to store in the format .json 
     data = {
         "Service": service,
         "Login": login,
@@ -30,33 +29,34 @@ def save_button_clicked(service_entry, login_entry, email_entry, password_entry)
         "Password": password
     }
     
-    # Зберігання у файл .json 
+    # Save in file .json 
+    if data["Service"] == '' and data["Login"] == '' and data["Email"] == '' and data["Password"] == '':
+        pass
+    else:
+        save_data_to_file(data)
     
-    save_data_to_file(data)
-    
-    # Зберігання у файл .txt
+    # Save in file .txt
     
     # save_data_to_file(service, login, email, password)
     
-# Зберігання у файл .json 
+# Save in file .json 
 
 def save_data_to_file(data):
     filename = 'info.json' # file name
-    try: # перехоплює помилки при зберіганні
-        with open(filename, 'r') as file: # спроба прочитати файл
-            saved_data = json.load(file) # якщо файл існує і містить дійсний об'єкт, то він буде завантажений через json.load(file)
-    except (FileNotFoundError, json.JSONDecodeError): # якщо файл не існує або містить недійсний json виникає помилка і файл набуває пустого списку
+    try: # intercepts storage errors
+        with open(filename, 'r') as file: # trying to read a file
+            saved_data = json.load(file) # if the file exists and contains a valid object, it will be loaded via json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError): # if the file does not exist or contains invalid json, an error occurs and the file becomes an empty list
         saved_data = []
     
-    saved_data.append(data) # додавання даних у файл
+    saved_data.append(data) # adding data to a file
      
-    with open(filename, 'w') as file: # відкриття файлу для запису
-        json.dump(saved_data, file, indent=4) # зберігання у форматі json і встановлення відступів
+    with open(filename, 'w') as file: # opening a file for writing
+        json.dump(saved_data, file, indent=4) # saving in json format and setting indents
     
     print(f"Data saved to file:\n{data}")
-        
 
-# Зберігання у файл .txt
+# Save in file .txt
 
 # def save_data_to_file(service, login, email, password):
 #     filename = 'info.txt'
@@ -66,6 +66,10 @@ def save_data_to_file(data):
 #         file.write(email + '\n')
 #         file.write(password + '\n')
 #     print(f" Data saved to file: \n Service:  {service} \n Login:  {login} \n Email: {email} \n Password:  {password} \n")
-            
-            
-            
+
+def take_info():
+    from info_window import root2
+    root2.mainloop()
+    
+def take_data():
+    ...
