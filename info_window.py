@@ -5,7 +5,7 @@ from tkinter import scrolledtext
 root2 = tk.Tk()
 
 # To set the exact dimensions of a Tkinter window, you can use the geometry() method to set the dimensions in the format widthxheight+x+y, where width and height are the desired window dimensions, and x and y are the window's position on the screen.
-root2.geometry("400x400+100+100")
+root2.geometry("360x260+100+100")
 
 frm2 = ttk.Frame(root2, padding=10, relief=tk.SUNKEN, borderwidth=5)
 frm2.grid()

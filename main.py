@@ -29,17 +29,21 @@ frk.pack()
 # We create an "Exit" button to close the program
 
 exit_btn = ttk.Button(frm, text='Exit', command=root.destroy)
-exit_btn.grid(column=4, row=10)
+exit_btn.grid(column=4, row=11)
 
 # So when the "Send" button is clicked, an anonymous function is executed, which then calls the functional.send_button_clicked function with the entry_text parameter.
 # Using an anonymous function allows you to pass parameters to the functional.send_button_clicked function without having to use a named function. It is a convenient way to call a function with parameters when you need to pass additional arguments or variables to the event handler function
 # Create a "Send" button to call the send_button_clicked function from the functional module, which processes the entered password
 
-send_btn = ttk.Button(frm, text='Save',command=lambda: fn.save_button_clicked(service_entry, login_entry, email_entry, password_entry))
-send_btn.grid(column=4, row=9)
+save_json_btn = ttk.Button(frm, text='Save in .json',command=lambda: fn.save_button_clicked_json(service_entry, login_entry, email_entry, password_entry))
+save_json_btn.grid(column=4, row=9)
 
-take_data_btn = ttk.Button(frm, text='Take data')
+save_txt_btn = ttk.Button(frm, text='Save in .txt', command=lambda: fn.save_button_clicked_txt(service_entry, login_entry, email_entry, password_entry))
+save_txt_btn.grid(column=4, row=10)
+
+take_data_btn = ttk.Button(frm, text='Take data', command=lambda: fn.receive_data(), )
 take_data_btn.grid(column=2, row=9)
+
 
 info_btn = ttk.Button(frm, text='Info', command=lambda: fn.take_info())
 info_btn.grid(column=2, row=10)

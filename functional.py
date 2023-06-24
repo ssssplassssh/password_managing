@@ -1,4 +1,5 @@
 # Import the tkinter module to access the tk.END symbol
+import subprocess
 import tkinter as tk
 import json
 
@@ -13,7 +14,7 @@ def field_processing(name_entry):
 
 # We create the save_button_clicked function, which is executed when the "Save" button is pressed
 
-def save_button_clicked(service_entry, login_entry, email_entry, password_entry):
+def save_button_clicked_json(service_entry, login_entry, email_entry, password_entry):
     
     # Call functions to process the field
     service = field_processing(service_entry)  
@@ -33,15 +34,24 @@ def save_button_clicked(service_entry, login_entry, email_entry, password_entry)
     if data["Service"] == '' and data["Login"] == '' and data["Email"] == '' and data["Password"] == '':
         pass
     else:
-        save_data_to_file(data)
+       save_data_to_file_json(data)
+            
+def save_button_clicked_txt(service_entry, login_entry, email_entry, password_entry):
+ 
+    # Call functions to process the field
+    service = field_processing(service_entry)  
+    login = field_processing(login_entry)  
+    email = field_processing(email_entry)
+    password = field_processing(password_entry)
     
-    # Save in file .txt
-    
-    # save_data_to_file(service, login, email, password)
+    if service == '' and login == '' and email == '' and password== '':
+        pass
+    else:
+        save_data_to_file_txt(service, login, email, password)
     
 # Save in file .json 
 
-def save_data_to_file(data):
+def save_data_to_file_json(data):
     filename = 'info.json' # file name
     try: # intercepts storage errors
         with open(filename, 'r') as file: # trying to read a file
@@ -58,18 +68,27 @@ def save_data_to_file(data):
 
 # Save in file .txt
 
-# def save_data_to_file(service, login, email, password):
-#     filename = 'info.txt'
-#     with open(filename, 'a') as file:
-#         file.write(service + '\n')
-#         file.write(login + '\n')
-#         file.write(email + '\n')
-#         file.write(password + '\n')
-#     print(f" Data saved to file: \n Service:  {service} \n Login:  {login} \n Email: {email} \n Password:  {password} \n")
+def save_data_to_file_txt(service, login, email, password):
+    filename = 'info.txt'
+    with open(filename, 'a') as file:
+        file.write(service + '\n')
+        file.write(login + '\n')
+        file.write(email + '\n')
+        file.write(password + '\n')
+    print(f" Data saved to file: \n Service:  {service} \n Login:  {login} \n Email: {email} \n Password:  {password} \n")
 
 def take_info():
-    from info_window import root2
-    root2.mainloop()
-    
-def take_data():
-    ...
+    subprocess.Popen(["python3", "info_window.py"])
+
+def receive_data():
+    subprocess.Popen(["python3", "data_window.py"])
+
+def receive():
+    subprocess.Popen(["python3", "receive_data_window.py"])
+    from data_window import data_field_processing,data_entry
+    print(data_field_processing(data_entry))
+# def receive():
+#     filename1 = 'info.txt'
+#     filename2 = 'json.txt'
+#     with open(filename1, 'r') as file:
+#         file.
