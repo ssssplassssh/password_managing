@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+
 root4 = tk.Tk()
 
 # To set the exact dimensions of a Tkinter window, you can use the geometry() method to set the dimensions in the format widthxheight+x+y, where width and height are the desired window dimensions, and x and y are the window's position on the screen.
@@ -12,15 +13,7 @@ frm4.grid()
 root4.resizable(width=False, height=False)
 
 
-# def data_field_processing(data_entry):
-#     field_value = data_entry.get()
-#     print('Input : ' + field_value)
-#     name_entry.delete(0, tk.END)
-#     name_entry.insert(0, "Новий текст")
-#     return field_value
-
-
-header_data_box = ttk.Label(frm4, text=f'Your Data on  service')
+header_data_box = ttk.Label(frm4, text=f'Your Data on service')
 header_data_box.grid(column=4, row=1)
 
 data_label = ttk.Label(frm4, text='Login: ')

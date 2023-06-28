@@ -80,15 +80,29 @@ def save_data_to_file_txt(service, login, email, password):
 def take_info():
     subprocess.Popen(["python3", "info_window.py"])
 
+# from data_window import get_data_entry
+
 def receive_data():
+    # data_entry = get_data_entry()
+    # filename = 'info.json'
+    # service_name = field_processing(data_entry)
+
+    # with open(filename, 'r') as file:
+    #     saved_data = json.load(file)
+
+    # for data in saved_data:
+    #     if data["Service"] == service_name:
+    #         print("Знайдено відповідні дані:")
+    #         print(f"Service: {data['Service']}")
+    #         print(f"Login: {data['Login']}")
+    #         print(f"Email: {data['Email']}")
+    #         print(f"Password: {data['Password']}")
+    #         break
+    # else:
+    #     print("Дані не знайдено")
     subprocess.Popen(["python3", "data_window.py"])
 
+        
 def receive():
     subprocess.Popen(["python3", "receive_data_window.py"])
-    from data_window import data_field_processing,data_entry
-    print(data_field_processing(data_entry))
-# def receive():
-#     filename1 = 'info.txt'
-#     filename2 = 'json.txt'
-#     with open(filename1, 'r') as file:
-#         file.
+    

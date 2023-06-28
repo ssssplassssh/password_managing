@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from functional import receive
+import functional as fn
 
 root3 = tk.Tk()
 
@@ -19,22 +19,17 @@ header_data_box.grid(column=4, row=1)
 data_label = ttk.Label(frm3, text='Input name of service: ')
 data_label.grid(column=3, row=2)
 
+# def get_data_entry():
+#     return data_entry
+
 data_entry = ttk.Entry(frm3)
 data_entry.grid(column=4, row=2)
 
 
-receive_btn = ttk.Button(frm3, text='Receive', command= lambda: receive())
+receive_btn = ttk.Button(frm3, text='Receive', command= lambda: fn.receive())
 receive_btn.grid(column=4, row=3)
 
 exit_btn = ttk.Button(frm3, text='Exit', command=root3.destroy)
 exit_btn.grid(column=4, row=4)
-
-def data_field_processing(name_entry):
-    service = name_entry.get()
-    print('Input : ' + service)
-    name_entry.delete(0, tk.END)
-    name_entry.insert(0, "Новий текст")
-    return service
-
 
 root3.mainloop()
